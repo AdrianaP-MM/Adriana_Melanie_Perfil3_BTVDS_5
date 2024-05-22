@@ -31,13 +31,13 @@ const SplashScreenComponent = ({ onFinish }) => {
     const interval = setInterval(() => {
       currentImageIndex = (currentImageIndex + 1) % images.length;
       setCurrentImage(currentImageIndex);
-    }, 5000); // Cambia cada 2 segundos
+    }, 20000); // Cambia cada 5 segundos
 
     setTimeout(async () => {
       clearInterval(interval);
       await SplashScreen.hideAsync();
       onFinish(); // Llama a la función para cambiar al contenido principal
-    }, 9000); // Duración total de 9 segundos antes de ocultar completamente
+    }, 15000); // Duración total de 25 segundos antes de ocultar completamente
 
     return () => clearInterval(interval);
   }, []);

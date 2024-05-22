@@ -8,3 +8,6 @@ Perfil 3 navegación entre 2 pantallas
 * 3: npm install @react-navigation/material-bottom-tabs react-native-paper react-native-vector-icons
 * 4: npm install @react-navigation/stack 
 * 5: npm install react-native-gesture-handler
+
+## Dependencias usadas para el SplashScreen
+* 1: npx expo install expo-splash-screen
