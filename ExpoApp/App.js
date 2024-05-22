@@ -1,3 +1,5 @@
+//Splash Screen en React Native con Expo
+
 import React, { useEffect, useState } from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import * as SplashScreen from 'expo-splash-screen';

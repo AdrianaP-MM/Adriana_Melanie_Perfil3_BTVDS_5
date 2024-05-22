@@ -83,11 +83,13 @@ const styles = StyleSheet.create({
         alignSelf: 'flex-start',
         borderTopLeftRadius: 10,
         borderTopRightRadius: 10,
+        flex: 1,
     },
     CardBody: {
         alignItems: 'center',
         display: 'flex',
         flexDirection: 'row',
+        flex: 1,
     },
     Card: {
         backgroundColor: '#fff',
@@ -129,6 +131,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         backgroundColor: 'white',
+        flex: 1,
     },
     icon: {
         width: 50,
