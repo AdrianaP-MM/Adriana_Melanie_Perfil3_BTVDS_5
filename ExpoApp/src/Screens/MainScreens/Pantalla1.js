@@ -2,10 +2,12 @@ import React from 'react';
 import { View, Text, FlatList, Image, StyleSheet, Dimensions } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import estudiantes from '../../Data/Estudiantes';
+import { useNavigation } from '@react-navigation/native';
  
 const Estudiantes = () => {
   const informacion = estudiantes;
- 
+  const navigation = useNavigation();
+  
   return (
     <View style={styles.container}>
       <FlatList
@@ -23,6 +25,7 @@ const Estudiantes = () => {
         numColumns={1}
         contentContainerStyle={styles.flatListContainer}
       />
+      <Text onPress={() => navigation.navigate('Detalles')} > Ir a detalles </Text> 
     </View>
   );
 };
