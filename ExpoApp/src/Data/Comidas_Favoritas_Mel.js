@@ -2,25 +2,19 @@ const Data = [
     {
         id: '1',
         src: require('../Imagenes/pupusas-comida.jpg'),
-        nom: 'Pupusas',
+        nom: 'Hamburguesa de pollo',
         desc: 'Son pupusas',
     },
     {
         id: '2',
         src: require('../Imagenes/pupusas-comida.jpg'),
-        nom: 'Pupusas',
+        nom: 'Tacos al pastor',
         desc: 'Son pupusas',
     },
     {
         id: '3',
         src: require('../Imagenes/pupusas-comida.jpg'),
-        nom: 'Pupusas',
-        desc: 'Son pupusas',
-    },
-    {
-        id: '4',
-        src: require('../Imagenes/pupusas-comida.jpg'),
-        nom: 'Pupusas',
+        nom: 'Carne Asada',
         desc: 'Son pupusas',
     }
 ];

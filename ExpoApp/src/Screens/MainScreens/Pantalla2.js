@@ -1,29 +1,63 @@
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, Image, ScrollView, Dimensions } from 'react-native';
 import React from 'react';
-import data from '../../Data/Comidas_Favoritas';
+import data1 from '../../Data/Comidas_Favoritas_Adri';
+import data2 from '../../Data/Comidas_Favoritas_Mel';
+import TitleDivisor from '../../Components/TitleDivisor';
+import Title from '../../Components/Title';
 
 const Pantalla2 = () => {
-
-    const informacion = data;
-
+    const informacion = data1;
+    const informacion2 = data2;
     return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Mostrando Informacion horizontal</Text>
-            <View style={styles.flatListContainer}>
-                <FlatList
-                    data={informacion}
-                    horizontal={true}
-                    renderItem={({ item }) => (
-                        <View style={styles.cardContainer}>
-                            <Image source={item.src} style={styles.image} />
-                            <Text style={styles.title}>{item.title}</Text>
-                        </View>
-                    )}
-                    keyExtractor={(item) => item.id}
-                />
+        <View>
+            <View style={styles.TitleContainer}>
+                <Title texto='Comidas Preferidas' />
+                <Image source={require('../../Imagenes/food_restaurant.png')} style={styles.icon}/>
             </View>
-
-            <Text style={styles.texto}>Mostrando Informacion horizontal, utilizando el componente FlatList y la propiedad horizontal con valor true</Text>
+            <ScrollView contentContainerStyle={styles.Container}>
+                <View style={styles.Row}>
+                    <TitleDivisor texto='Adriana Paola Mejia' />
+                    <View style={styles.CardContainer}>
+                        <FlatList
+                            data={informacion}
+                            horizontal={false}
+                            renderItem={({ item }) => (
+                                <View style={styles.CardWrap}>
+                                    <Text style={styles.CardTitle}>{item.nom}</Text>
+                                    <View style={styles.Card}>
+                                        <View style={styles.CardBody}>
+                                            <Image source={item.src} style={styles.image}/>
+                                            <Text style={styles.CardDesc}>{item.desc}</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                            keyExtractor={(item) => item.id}
+                        />
+                    </View>
+                </View>
+                <View style={styles.Row}>
+                    <TitleDivisor texto='Melanie Jackeline Martinez' />
+                    <View style={styles.CardContainer}>
+                        <FlatList
+                            data={informacion2}
+                            horizontal={false}
+                            renderItem={({ item }) => (
+                                <View style={styles.CardWrap}>
+                                    <Text style={styles.CardTitle}>{item.nom}</Text>
+                                    <View style={styles.Card}>
+                                        <View style={styles.CardBody}>
+                                            <Image source={item.src} style={styles.image}/>
+                                            <Text style={styles.CardDesc}>{item.desc}</Text>
+                                        </View>
+                                    </View>
+                                </View>
+                            )}
+                            keyExtractor={(item) => item.id}
+                        />
+                    </View>
+                </View>
+            </ScrollView>
         </View>
     );
 }
@@ -31,25 +65,36 @@ const Pantalla2 = () => {
 export default Pantalla2;
 
 const styles = StyleSheet.create({
-    container: {
-        flex:1,
-        backgroundColor: '#FFF',
+    CardWrap: {
+        marginVertical: 20,
+    },
+    CardDesc: {
+        fontSize: 15,
+        color: 'black',
+        paddingLeft: 15,
+        flex: 1,
+    },
+    CardTitle: {
+        fontSize: 16,
+        backgroundColor: '#ECECEC',
+        color: 'black',
+        paddingVertical: 6,
+        paddingHorizontal: 15,
+        alignSelf: 'flex-start',
+        borderTopLeftRadius: 10,
+        borderTopRightRadius: 10,
+    },
+    CardBody: {
         alignItems: 'center',
-        justifyContent: 'center',
-        paddingTop: 20
+        display: 'flex',
+        flexDirection: 'row',
     },
-    flatListContainer: {
-        height: 160, // Altura fija para evitar el crecimiento automático
-        marginHorizontal:5
-    },
-    cardContainer: {
+    Card: {
         backgroundColor: '#fff',
         borderRadius: 8,
-        borderWidth: 1,
+        borderWidth: 0,
         borderColor: '#ccc',
         padding: 10,
-        marginBottom: 10,
-        marginHorizontal: 5,
         shadowColor: '#000',
         shadowOffset: {
             width: 0,
@@ -58,18 +103,36 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
-        alignItems:'center'
+        alignItems: 'start'
     },
     image: {
-        width: 100,
-        height: 100,
-        marginBottom: 10,
+        width: 150,
+        height: 150,
+        borderRadius: 10,
     },
-    title: {
-        fontSize: 16,
-        fontWeight: 'bold',
+    Row: {
+        marginBottom: 50,
+        flexGrow: 1,
     },
-    texto:{
-        marginHorizontal:15
-    }
+    CardContainer: {
+        paddingHorizontal: 15,
+        paddingVertical: 10,
+    },
+    Container: {
+        backgroundColor: 'white',
+        paddingBottom: 50,
+        flexGrow: 1,
+    },
+    TitleContainer: {
+        alignItems: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        backgroundColor: 'white',
+    },
+    icon: {
+        width: 50,
+        height: 50,
+        marginLeft: 15,
+    },
 });
